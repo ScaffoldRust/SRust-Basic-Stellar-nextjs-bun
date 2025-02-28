@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 body {
+  background-color: var(--bark);
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer base {
   :root {
+    --bark: #222222;
+    --bark-card: #333333;
+    --bark-lighter: #444444;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;

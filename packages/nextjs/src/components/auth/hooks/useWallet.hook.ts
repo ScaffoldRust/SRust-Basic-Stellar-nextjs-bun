@@ -20,6 +20,8 @@ export const useWallet = () => {
     });
   };
 
+
+
   const disconnectWallet = async () => {
     await kit.disconnect();
     disconnectWalletStore();
@@ -48,3 +50,7 @@ export const useWallet = () => {
     handleDisconnect,
   };
 };
+
+
+
+
