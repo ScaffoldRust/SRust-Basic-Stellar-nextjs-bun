@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { useWallet } from "@/components/auth/hooks/useWallet.hook";
-import { useGlobalAuthenticationStore } from "@/components/auth/store/data";
-import { theme } from "@/components/utils/theme"; // Import the theme object
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { useWallet } from '@/components/auth/hooks/useWallet.hook';
+import { useGlobalAuthenticationStore } from '@/components/auth/store/data';
+import { theme } from '@/components/utils/theme'; // Import the theme object
 
 /**
  * Navbar Component
- * 
+ *
  * This component renders the navigation bar, including:
  * - A logo linking to the homepage
  * - Navigation links for desktop users
@@ -33,10 +33,7 @@ const Navbar = () => {
         </Link>
 
         {/* Hamburger Icon (Toggle Offcanvas Menu for mobile users) */}
-        <button
-          onClick={() => setIsMenuOpen(true)}
-          className="md:hidden focus:outline-none"
-        >
+        <button onClick={() => setIsMenuOpen(true)} className="md:hidden focus:outline-none">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -45,7 +42,11 @@ const Navbar = () => {
             stroke="currentColor"
             className="w-6 h-6 text-gray-700"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
           </svg>
         </button>
 
@@ -61,7 +62,7 @@ const Navbar = () => {
             onClick={address ? handleDisconnect : handleConnect}
             className={`bg-${theme.primaryColor} hover:bg-${theme.primaryColor}-dark text-white px-4 py-2 rounded`}
           >
-            {address ? "Disconnect Wallet" : "Connect Wallet"}
+            {address ? 'Disconnect Wallet' : 'Connect Wallet'}
           </Button>
         </div>
       </div>
@@ -69,13 +70,13 @@ const Navbar = () => {
       {/* Offcanvas Menu for mobile users */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-50 z-50 transition-all duration-300 ease-in-out ${
-          isMenuOpen ? "block" : "hidden"
+          isMenuOpen ? 'block' : 'hidden'
         }`}
         onClick={() => setIsMenuOpen(false)} // Close on background click
       ></div>
       <div
         className={`fixed top-0 right-0 w-[300px] h-full bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="p-4 border-b">
@@ -100,12 +101,20 @@ const Navbar = () => {
           {/* Navigation Links */}
           <ul className="space-y-2">
             <li>
-              <Link href="/" className="block py-2 text-gray-700 hover:text-gray-900 transition-colors" onClick={() => setIsMenuOpen(false)}>
+              <Link
+                href="/"
+                className="block py-2 text-gray-700 hover:text-gray-900 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/debug" className="block py-2 text-gray-700 hover:text-gray-900 transition-colors" onClick={() => setIsMenuOpen(false)}>
+              <Link
+                href="/debug"
+                className="block py-2 text-gray-700 hover:text-gray-900 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Smart Contract Debug
               </Link>
             </li>
@@ -124,7 +133,7 @@ const Navbar = () => {
               }}
               className={`w-full bg-${theme.primaryColor} hover:bg-${theme.primaryColor}-dark text-white py-2 rounded`}
             >
-              {address ? "Disconnect Wallet" : "Connect Wallet"}
+              {address ? 'Disconnect Wallet' : 'Connect Wallet'}
             </Button>
           </div>
         </div>

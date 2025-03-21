@@ -1,43 +1,43 @@
-"use client"
+'use client';
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export function ImageCarousel() {
   const images = [
-    "/placeholder.svg?height=400&width=600",
-    "/placeholder.svg?height=400&width=600",
-    "/placeholder.svg?height=400&width=600",
-    "/placeholder.svg?height=400&width=600",
-  ]
+    '/placeholder.svg?height=400&width=600',
+    '/placeholder.svg?height=400&width=600',
+    '/placeholder.svg?height=400&width=600',
+    '/placeholder.svg?height=400&width=600',
+  ];
 
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [autoplay, setAutoplay] = useState(true)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout
+    let interval: NodeJS.Timeout;
 
     if (autoplay) {
       interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-      }, 5000)
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 5000);
     }
 
-    return () => clearInterval(interval)
-  }, [autoplay, images.length])
+    return () => clearInterval(interval);
+  }, [autoplay, images.length]);
 
   const handlePrevious = () => {
-    setAutoplay(false)
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
-  }
+    setAutoplay(false);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
 
   const handleNext = () => {
-    setAutoplay(false)
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-  }
+    setAutoplay(false);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
   return (
     <div className="relative overflow-hidden rounded-lg border border-pink-500/20">
@@ -54,7 +54,7 @@ export function ImageCarousel() {
             className="absolute inset-0"
           >
             <Image
-              src={images[currentIndex] || "/placeholder.svg"}
+              src={images[currentIndex] || '/placeholder.svg'}
               alt={`Carousel image ${currentIndex + 1}`}
               fill
               className="object-cover"
@@ -88,16 +88,15 @@ export function ImageCarousel() {
         {images.map((_, index) => (
           <button
             key={index}
-            className={`w-2 h-2 rounded-full ${index === currentIndex ? "bg-primary" : "bg-muted"}`}
+            className={`w-2 h-2 rounded-full ${index === currentIndex ? 'bg-primary' : 'bg-muted'}`}
             onClick={() => {
-              setAutoplay(false)
-              setCurrentIndex(index)
+              setAutoplay(false);
+              setCurrentIndex(index);
             }}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
     </div>
-  )
+  );
 }
-

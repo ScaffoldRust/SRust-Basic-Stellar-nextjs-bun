@@ -1,6 +1,6 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export function Header() {
   return (
@@ -17,9 +17,7 @@ export function Header() {
                 height={10}
                 priority
               />
-              <span className="text-gray-900 text-xl font-semibold">
-                Scaffold-Stellar
-              </span>
+              <span className="text-gray-900 text-xl font-semibold">Scaffold-Stellar</span>
             </Link>
             <div className="hidden md:block ml-10">
               <div className="flex items-center space-x-4">

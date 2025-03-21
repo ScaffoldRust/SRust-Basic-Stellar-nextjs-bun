@@ -1,26 +1,26 @@
-"use client"
+'use client';
 
-import type React from "react"
+import type React from 'react';
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export function ContractForm() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
+    e.preventDefault();
+    setLoading(true);
 
     // Simulate loading
     setTimeout(() => {
-      setLoading(false)
-    }, 1500)
-  }
+      setLoading(false);
+    }, 1500);
+  };
 
   return (
     <Tabs defaultValue="address" className="w-full">
@@ -50,7 +50,7 @@ export function ContractForm() {
           </div>
 
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "Loading..." : "Debug Contract"}
+            {loading ? 'Loading...' : 'Debug Contract'}
           </Button>
         </form>
       </TabsContent>
@@ -67,11 +67,10 @@ export function ContractForm() {
           </div>
 
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "Loading..." : "Analyze Contract"}
+            {loading ? 'Loading...' : 'Analyze Contract'}
           </Button>
         </form>
       </TabsContent>
     </Tabs>
-  )
+  );
 }
-

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { FaGithub, FaTwitter, FaDiscord } from "react-icons/fa"; // Import social media icons
+import Link from 'next/link';
+import { FaGithub, FaTwitter, FaDiscord } from 'react-icons/fa'; // Import social media icons
 
 /**
  * Footer Component
@@ -27,9 +27,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">About Scaffold-Rust</h3>
             <p className="text-sm">
-              ScaffoldRust is a powerful and customizable blockchain
-              development template designed to help you build decentralized
-              applications effortlessly.
+              ScaffoldRust is a powerful and customizable blockchain development template designed
+              to help you build decentralized applications effortlessly.
             </p>
           </div>
 
@@ -38,26 +37,17 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link
-                  href="/"
-                  className="hover:text-gray-300 transition-colors"
-                >
+                <Link href="/" className="hover:text-gray-300 transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/testimonials"
-                  className="hover:text-gray-300 transition-colors"
-                >
+                <Link href="/testimonials" className="hover:text-gray-300 transition-colors">
                   Testimonials
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/debug"
-                  className="hover:text-gray-300 transition-colors"
-                >
+                <Link href="/debug" className="hover:text-gray-300 transition-colors">
                   Smart Contract Debug
                 </Link>
               </li>
