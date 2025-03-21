@@ -1,99 +1,88 @@
-'use client';
+import { Wrench, Rocket, BookOpen } from 'lucide-react';
 
-import { useGlobalAuthenticationStore } from "@/components/auth/store/data";
-import Footer from "./components/Footer"; // Import the Footer component
+import { Button } from '@/components/ui/button';
+import { ImageCarousel } from '@/components/image-carousel';
+import { StatsCard } from '@/components/stats-card';
+import { FeatureCard } from '@/components/feature-card';
+import { ProblemSolutionSection } from '@/components/problem-solution-section';
+import { HeroSection } from '@/components/hero-section';
 
-/**
- * Home Page Component
- * 
- * This component serves as the main landing page for ScaffoldRust.
- * It features a hero section, call-to-action, and testimonials.
- * 
- * Customization Guide:
- * - To change the hero section background image, update the `backgroundImage` in the inline style.
- * - To modify the call-to-action button, adjust the text and styling inside the <button> element.
- * - To add or edit testimonials, update the testimonial array.
- */
 export default function Home() {
-  const address = useGlobalAuthenticationStore((state) => state.address);
-
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] min-h-screen bg-bark text-white">
-      {/* Main Content */}
-      <main className="flex flex-col gap-8 items-center justify-center">
-        {/* Hero Section */}
-        <section
-          className="relative w-full h-[500px] md:h-[800px] bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url("/images/Blockchain.jpeg")', // Replace with custom image
-          }}
-        >
-          {/* Overlay for readability */}
-          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-          {/* Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
-            <h1 className="text-4xl md:text-5xl font-bold">
-              Welcome to ScaffoldRust
-            </h1>
-            
-            <p className="text-lg md:text-xl max-w-md mx-auto mt-4 pt-9">
-            </p>
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-1">
+        <HeroSection />
 
-            <p className="text-lg md:text-xl max-w-md mx-auto mt-4 pt-9">
-              ScaffoldRust helps developers build decentralized applications quickly and efficiently.
-              A powerful and customizable blockchain development.
+        <section className="container py-12 space-y-6 md:py-16 lg:py-24">
+          <div className="mx-auto text-center space-y-4">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Trusted by developers worldwide
+            </h2>
+            <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl">
+              Our platform provides the tools you need to build, test, and deploy your smart
+              contracts with confidence.
             </p>
+          </div>
 
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            <StatsCard title="Users" value="100K+" description="Active developers" />
+            <StatsCard title="Contracts" value="250K+" description="Successfully deployed" />
+            <StatsCard title="Transactions" value="10M+" description="Processed monthly" />
           </div>
         </section>
 
-        {/* Call to Action Button */}
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded shadow-md"
-        >
-          Get Started
-        </button>
-
-        {/* Testimonial Section */}
-        <section className="w-full max-w-6xl mx-auto p-8 bg-bark-card border border-gray-700 rounded-lg shadow-md">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-            What Our Users Say
-          </h2>
-          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto mb-16">
-            Here's what our users think about ScaffoldRust.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Testimonial Cards */}
-            {[
-              {
-                text: "ScaffoldRust has made blockchain development effortless. The customization options are fantastic!",
-                author: "John Doe, Developer at Blockchain Co.",
-              },
-              {
-                text: "I was skeptical at first, but ScaffoldRust exceeded my expectations. It's now my go-to template for smart contracts.",
-                author: "Jane Smith, CTO at Crypto Solutions",
-              },
-              {
-                text: "The ease of setup and integration with blockchain networks is unmatched. Highly recommend it for any project!",
-                author: "Alex Johnson, Blockchain Enthusiast",
-              },
-            ].map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-bark-lighter border border-gray-700 rounded-lg p-6 transition-shadow hover:shadow-lg"
-              >
-                <blockquote className="text-gray-300">{testimonial.text}</blockquote>
-                <footer className="mt-4 text-sm text-gray-400 text-right">
-                  — {testimonial.author}
-                </footer>
-              </div>
-            ))}
+        <section className="container py-12 space-y-6 md:py-16 lg:py-24">
+          <div className="mx-auto text-center space-y-4">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Why choose our platform
+            </h2>
+            <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl">
+              Experience rapid blockchain development with our powerful and customizable framework
+            </p>
           </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <FeatureCard
+              icon={<Rocket className="h-10 w-10 text-primary" />}
+              title="Quick Setup"
+              description="Start building dApps in minutes with our pre-configured development environment"
+            />
+            <FeatureCard
+              icon={<Wrench className="h-10 w-10 text-primary" />}
+              title="Customizable Framework"
+              description="Tailor your development environment with flexible configuration options"
+            />
+            <FeatureCard
+              icon={<BookOpen className="h-10 w-10 text-primary" />}
+              title="Developer Experience"
+              description="Comprehensive documentation and templates to accelerate your development"
+            />
+          </div>
+        </section>
+
+        <ProblemSolutionSection />
+
+        <section className="container py-12 space-y-6 md:py-16 lg:py-24">
+          <div className="mx-auto text-center space-y-4">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              See it in action
+            </h2>
+            <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl">
+              Browse through our showcase of successful implementations
+            </p>
+          </div>
+
+          <div className="mt-8">
+            <ImageCarousel />
+          </div>
+        </section>
+
+        <section className="container py-12 md:py-16 text-center">
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
+            Get Started
+          </Button>
         </section>
       </main>
-
-      {/* Footer Component */}
-      <Footer />
     </div>
   );
 }
