@@ -8,10 +8,10 @@ import Image from 'next/image';
 
 export function ImageCarousel() {
   const images = [
-    '/placeholder.svg?height=400&width=600',
-    '/placeholder.svg?height=400&width=600',
-    '/placeholder.svg?height=400&width=600',
-    '/placeholder.svg?height=400&width=600',
+    'https://placehold.co/4000X4000/080808/CF4790/webp',
+    'https://placehold.co/4000X4000/080808/CF4790/webp',
+    'https://placehold.co/4000X4000/080808/CF4790/webp',
+    'https://placehold.co/4000X4000/080808/CF4790/webp',
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
