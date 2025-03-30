@@ -1,14 +1,13 @@
-import { ISupportedWallet } from "@creit.tech/stellar-wallets-kit";
-import { useGlobalAuthenticationStore } from "../store/data";
-import { kit } from "@/components/auth/constant/walletKit";
+import { ISupportedWallet } from '@creit.tech/stellar-wallets-kit';
+import { useGlobalAuthenticationStore } from '../store/data';
+import { kit } from '@/components/auth/constant/walletKit';
 
 export const useWallet = () => {
-  const { connectWalletStore, disconnectWalletStore } =
-    useGlobalAuthenticationStore();
+  const { connectWalletStore, disconnectWalletStore } = useGlobalAuthenticationStore();
 
   const connectWallet = async () => {
     await kit.openModal({
-      modalTitle: "Connect to your favorite wallet",
+      modalTitle: 'Connect to your favorite wallet',
       onWalletSelected: async (option: ISupportedWallet) => {
         kit.setWallet(option.id);
 
@@ -20,8 +19,6 @@ export const useWallet = () => {
     });
   };
 
-
-
   const disconnectWallet = async () => {
     await kit.disconnect();
     disconnectWalletStore();
@@ -31,7 +28,7 @@ export const useWallet = () => {
     try {
       await connectWallet();
     } catch (error) {
-      console.error("Error connecting wallet:", error);
+      console.error('Error connecting wallet:', error);
     }
   };
 
@@ -41,7 +38,7 @@ export const useWallet = () => {
         await disconnectWallet();
       }
     } catch (error) {
-      console.error("Error disconnecting wallet:", error);
+      console.error('Error disconnecting wallet:', error);
     }
   };
 
@@ -50,7 +47,3 @@ export const useWallet = () => {
     handleDisconnect,
   };
 };
-
-
-
-
